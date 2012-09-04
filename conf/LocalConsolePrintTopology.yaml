@@ -1,0 +1,15 @@
+## LocalConsolePrintTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : __NIMBUS_HOST__
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+MessageGenSpout.Parallelism  : 2
+ConsolePrintBolt.Parallelism : 2
+

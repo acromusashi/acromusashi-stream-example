@@ -1,0 +1,16 @@
+## Snmp2JdbcStoreTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : __NIMBUS_HOST__
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 1
+## Storm Debug Flag
+topology.debug     : true
+
+## TopologyDefine
+SnmpGenSpout.Parallelism   : 1
+JdbcStoreBolt.Parallelism  : 1
+CamelContext.Path          : 'file:/opt/storm/conf/camel-context-example-jdbc.xml'
+

@@ -1,0 +1,19 @@
+## HdfsStoreTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : __NIMBUS_HOST__
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+MessageGenSpout.Parallelism : 2
+HdfsStoreBolt.Parallelism   : 2
+
+## Set Hadoop NameNode Host
+hdfsstorebolt.outputuri      : 'hdfs://__NAMENODE_HOST__:55000/camel/HDFSMessage/'
+hdfsstorebolt.filenameheader : HDFSStoreBolt
+hdfsstorebolt.interval       : 10

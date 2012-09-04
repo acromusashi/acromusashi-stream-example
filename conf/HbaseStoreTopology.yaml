@@ -1,0 +1,20 @@
+## Snmp2HbaseStoreTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : __NIMBUS_HOST__
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+MessageGenSpout.Parallelism : 2
+CamelHBaseBolt.Parallelism  : 2
+CamelContext.Path           : 'file:/opt/storm/conf/camel-context-example-hbase.xml'
+## HBase Define
+HBaseSchema.Define          :
+  - hbase_counter
+  - camel_text
+

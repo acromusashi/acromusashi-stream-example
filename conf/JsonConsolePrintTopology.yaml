@@ -1,0 +1,22 @@
+## Snmp2JdbcStoreTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : __NIMBUS_HOST__
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+## Set Kestrel Host List
+Kestrel.Host               : 
+  - __KESTREL__HOST__
+
+Kestrel.Port                 : 2229
+Kestrel.QueueName            : MessageQueue
+KestrelSpout.Parallelism     : 1
+ConvertBolt.Parallelism      : 2
+ConsolePrintBolt.Parallelism : 2
+

@@ -1,0 +1,32 @@
+## Snmp2HbaseStoreTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : __NIMBUS_HOST__
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+## Set Kestrel Host:Port List
+Kestrel.Hosts              : 
+  - __KESTREL_HOST1__:__KESTREL_PORT1__
+  - __KESTREL_HOST2__:__KESTREL_PORT2__
+
+Kestrel.QueueName          : MessageQueue
+KestrelSpout.Parallelism   : 1
+ConvertBolt.Parallelism    : 2
+CamelHBaseBolt.Parallelism : 2
+HdfsStoreBolt.Parallelism  : 2
+CamelContext.Path          : 'file:/opt/storm/conf/camel-context-example-hbase.xml'
+## HBase Define
+HBaseSchema.Define         :
+  - hbase_counter
+  - camel_text
+
+## Set Hadoop NameNode Host
+hdfsstorebolt.outputuri      : 'hdfs://__NAMENODE_HOST__:55000/camel/HDFSMessage/'
+hdfsstorebolt.filenameheader : HDFSStoreBolt
+hdfsstorebolt.interval       : 10

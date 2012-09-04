@@ -1,0 +1,26 @@
+## Snmp2HdfsStoreTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : 126.0.1.222
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 4
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+## Set Kestrel Host:Port List
+Kestrel.Hosts              : 
+  - __KESTREL_HOST1__:__KESTREL_PORT1__
+  - __KESTREL_HOST2__:__KESTREL_PORT2__
+
+Kestrel.QueueName          : MessageQueue
+KestrelSpout.Parallelism   : 4
+ConvertBolt.Parallelism    : 4
+HdfsStoreBolt.Parallelism  : 4
+
+## Set Hadoop NameNode Host
+hdfsstorebolt.outputuri      : 'hdfs://sodium:55000/camel/HDFSPer/'
+hdfsstorebolt.filenameheader : HDFSStoreBolt
+hdfsstorebolt.interval       : 1
