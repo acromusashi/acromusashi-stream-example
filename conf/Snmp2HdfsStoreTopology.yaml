@@ -1,7 +1,7 @@
 ## Snmp2HdfsStoreTopology Sample Config
 ## NimbusHost
 ## Set StormCluster's Nimbus Host
-nimbus.host        : 126.0.1.222
+nimbus.host        : __NIMBUS_HOST__
 ## NimbusPort
 nimbus.thrift.port : 6627
 ## WorkerProcess Number
@@ -21,6 +21,6 @@ ConvertBolt.Parallelism    : 4
 HdfsStoreBolt.Parallelism  : 4
 
 ## Set Hadoop NameNode Host
-hdfsstorebolt.outputuri      : 'hdfs://sodium:55000/camel/HDFSPer/'
+hdfsstorebolt.outputuri      : 'hdfs://__NAMENODE_HOST__:55000/camel/HDFSPerformance/'
 hdfsstorebolt.filenameheader : HDFSStoreBolt
 hdfsstorebolt.interval       : 1
