@@ -1,0 +1,55 @@
+## KmeansTopology Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : rtml01
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 3
+## parallelismHint ThreadNum
+topology.parallelismHint   :   3
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+transactional.zookeeper.servers :
+  - "rtml01"
+  - "rtml02"
+  - "rtml03"
+
+transactional.zookeeper.port : 2181
+
+## Spout
+## KMeans用のテストデータの配置パス＆ベースファイル名
+## parallelismHint設定に応じて「ベースファイル名_【TaskIndex】」のファイルが読みこまれる。
+## 例）「Kmeans.txt_0」「Kmeans.txt_1」
+kmeans.datafilepath     : "/opt/acromusashi-stream-ml/"
+kmeans.datafilebasename : "Kmeans.txt"
+
+## StateFactory
+## 学習モデルを保存するサーバアドレス。「host1:port1;host2:port2;host3:port3...」という形式で定義
+kmeans.stateservers        : "rtml01:11222;rtml02:11222;rtml03:11222"
+## 学習モデルキャッシュ名称
+kmeans.cachename           : "default"
+## 学習モデルのマージを行う間隔
+kmeans.merge.interval.secs : 30
+## キャッシュ上に学習モデルを保存する期間
+kmeans.lifespan.secs       : 360000
+
+## Creator
+## 投入データを分割する文字列
+kmeans.delimeter        : " "
+
+## Updater
+## キャッシュに保存する際のベース名称
+kmeans.statebasename    : "KMeans"
+## 識別する際のクラスタ数
+kmeans.clusternum       : 3
+
+## Query
+## DRPCサーバアドレス
+drpc.servers            :
+  - rtml01
+## DRPC機能名称
+kmeans.drpc.function : "kmeans"
+

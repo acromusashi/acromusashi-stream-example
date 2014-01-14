@@ -1,0 +1,37 @@
+## KafkaEsTopology Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : rtml01
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 3
+## Storm Debug Flag
+topology.debug     : false
+
+
+## KafkaSpout
+## KafkaSpoutの並列度
+kafka.spout.parallelism    : 1
+## Kafkaの取得元となるTopic名
+kafka.topic                : ApacheLog
+## Kafkaの接続先ZooKeeperのサーバアドレス。「host1:port1,host2:port2,host3:port3...」という形式で定義(ホスト毎の区切り文字はカンマ)
+kafka.zookeeper.server.str : "log-analy2:2181"
+## KafkaのConsumer Group Id
+kafka.consumer.id          : "KafkaEsTopology"
+## KafkaのBroker情報を保持するZooKeeper上のパス
+kafka.zookeeper.root       : "/brokers"
+
+## ElasticSearchBolt
+## ElasticSearchBoltの並列度
+elasticsearch.bolt.parallelism : 3
+## ElasticSearchのクラスタ名称
+elasticsearch.cluster.name     : "elasticsearch"
+## ElasticSearchのサーバアドレス。「host1:port1;host2:port2;host3:port3...」という形式で定義(ホスト毎の区切り文字はセミコロン)
+elasticsearch.server.str         : "rdpf-db1:9300;rdpf-db2:9300;rdpf-db3:9300"
+## ElasticSearchに投入する際のIndex Name、Type Name
+elasticsearch.index            : "apache"
+elasticsearch.type             : "log"
+## ElasticSearchに投入するJSONが保持されているフィールド名称
+elasticsearch.field            : "str"
+

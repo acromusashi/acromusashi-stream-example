@@ -1,12 +1,25 @@
+/**
+* Copyright (c) Acroquest Technology Co, Ltd. All Rights Reserved.
+* Please read the associated COPYRIGHTS file for more details.
+*
+* THE SOFTWARE IS PROVIDED BY Acroquest Technolog Co., Ltd.,
+* WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+* BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDER BE LIABLE FOR ANY
+* CLAIM, DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+* OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+*/
 package acromusashi.stream.example.spout;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import acromusashi.stream.constants.FieldName;
 import acromusashi.stream.entity.Header;
 import acromusashi.stream.entity.Message;
 import acromusashi.stream.spout.BaseConfigurationSpout;
@@ -25,13 +38,13 @@ public class PeriodicalSnmpGenSpout extends BaseConfigurationSpout
     private static final long   serialVersionUID = -237111294339742815L;
 
     /** logger */
-    private static final Logger logger           = Logger.getLogger(PeriodicalSnmpGenSpout.class);
+    private static final Logger logger           = LoggerFactory.getLogger(PeriodicalSnmpGenSpout.class);
 
     /** 送信カウンタ */
     private int                 counter          = 0;
 
     /**
-     * デフォルトコンストラクタ
+     * パラメータを指定せずにインスタンスを生成する。
      */
     public PeriodicalSnmpGenSpout()
     {}
@@ -61,7 +74,7 @@ public class PeriodicalSnmpGenSpout extends BaseConfigurationSpout
 
         try
         {
-            Thread.sleep(1000);
+            TimeUnit.SECONDS.sleep(1);
         }
         catch (InterruptedException iex)
         {
@@ -72,9 +85,12 @@ public class PeriodicalSnmpGenSpout extends BaseConfigurationSpout
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer)
     {
-        declarer.declare(new Fields(FieldName.MESSAGE));
+        declarer.declare(new Fields("message"));
     }
 }

@@ -1,3 +1,15 @@
+/**
+* Copyright (c) Acroquest Technology Co, Ltd. All Rights Reserved.
+* Please read the associated COPYRIGHTS file for more details.
+*
+* THE SOFTWARE IS PROVIDED BY Acroquest Technolog Co., Ltd.,
+* WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+* BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDER BE LIABLE FOR ANY
+* CLAIM, DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+* OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+*/
 package acromusashi.stream.example.topology;
 
 import acromusashi.stream.bolt.hdfs.HdfsStoreBolt;
@@ -77,8 +89,7 @@ public class HdfsStoreTopology extends BaseTopology
         // Get setting from StormConfig Object
         int msgGenSpoutPara = StormConfigUtil.getIntValue(getConfig(),
                 "MessageGenSpout.Parallelism", 1);
-        int hdfsBoltPara = StormConfigUtil.getIntValue(getConfig(),
-                "HdfsStoreBolt.Parallelism", 1);
+        int hdfsBoltPara = StormConfigUtil.getIntValue(getConfig(), "HdfsStoreBolt.Parallelism", 1);
 
         // Topology Setting
         // Add Spout(PeriodicalMessageGenSpout)
@@ -88,8 +99,7 @@ public class HdfsStoreTopology extends BaseTopology
         // Add Bolt(PeriodicalMessageGenSpout -> HdfsStoreBolt)
         HdfsStoreBolt bolt = new HdfsStoreBolt();
         bolt.setConverter(new SnmpConverter());
-        getBuilder().setBolt("HdfsStoreBolt", bolt, hdfsBoltPara).shuffleGrouping(
-                "MessageGenSpout");
+        getBuilder().setBolt("HdfsStoreBolt", bolt, hdfsBoltPara).shuffleGrouping("MessageGenSpout");
 
         // Regist Serialize Setting.
         getConfig().registerSerialization(Message.class);

@@ -1,4 +1,4 @@
-## Snmp2JdbcStoreTopology Sample Config
+## Snmp2TrashTopology Sample Config
 ## NimbusHost
 ## Set StormCluster's Nimbus Host
 nimbus.host        : __NIMBUS_HOST__
@@ -18,6 +18,5 @@ Kestrel.Hosts              :
 Kestrel.QueueName          : MessageQueue
 KestrelSpout.Parallelism   : 1
 ConvertBolt.Parallelism    : 1
-JdbcStoreBolt.Parallelism  : 1
-CamelContext.Path          : 'file:/opt/storm/conf/camel-context-example-jdbc.xml'
+BlackHoleBolt.Parallelism  : 1
 

@@ -1,11 +1,11 @@
-## Snmp2JdbcStoreTopology Sample Config
+## Snmp2HdfsStoreTopology Sample Config
 ## NimbusHost
 ## Set StormCluster's Nimbus Host
 nimbus.host        : __NIMBUS_HOST__
 ## NimbusPort
 nimbus.thrift.port : 6627
 ## WorkerProcess Number
-topology.workers   : 2
+topology.workers   : 4
 ## Storm Debug Flag
 topology.debug     : false
 
@@ -16,8 +16,8 @@ Kestrel.Hosts              :
   - __KESTREL_HOST2__:__KESTREL_PORT2__
 
 Kestrel.QueueName          : MessageQueue
-KestrelSpout.Parallelism   : 1
-ConvertBolt.Parallelism    : 1
-JdbcStoreBolt.Parallelism  : 1
-CamelContext.Path          : 'file:/opt/storm/conf/camel-context-example-jdbc.xml'
+KestrelSpout.Parallelism   : 4
+ConvertBolt.Parallelism    : 4
+RedisBolt.RedisHost        : localhost
+RedisBolt.Parallelism      : 4
 

@@ -1,0 +1,48 @@
+## EndoSnipeTridentTopology Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : nimbus
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 3
+## parallelismHint ThreadNum
+topology.parallelismHint   :   2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+## TridentKafkaSpout
+## Kafkaの取得元となるTopic名
+kafka.topic                : ApacheLog
+## Kafkaの接続先ZooKeeperのサーバアドレス。「host1:port1,host2:port2,host3:port3...」という形式で定義(ホスト毎の区切り文字はカンマ)
+kafka.zookeeper.server.str : "localhost:2181"
+## KafkaのConsumer Group Id
+kafka.consumer.id          : "KafkaEsTopology"
+## KafkaのBroker情報を保持するZooKeeper上のパス
+kafka.zookeeper.root       : "/brokers"
+
+## ApacheLogSplitFunction
+## ApacheLogJSON中のDateFormat
+apache.date.format : "yyyy-MM-dd'T'HH:mm:SSSZ"
+
+## ChangeFindFunction
+## ChangeFindアルゴリズム:自己回帰モデルの次数「k」
+changefinder.ardimension : 4
+## ChangeFindアルゴリズム:オンライン忘却パラメータ「r」
+changefinder.forgetability : 0.05
+## ChangeFindアルゴリズム:平滑化ウィンドウサイズ「T」
+changefinder.smoothingwindow  : 5
+## 変化点として検出するスコア閾値
+changefinder.threshold : 15.0
+
+## EndoSnipeNotifyFunction
+## DataCollector接続先ホスト
+datacollector.host        : "localhost"
+## DataCollector接続先ポート
+datacollector.port        : 18000
+## DataCollectorへ通知する際のメッセージ名称
+datacollector.messagename : "/Trident/Performance/"
+## DataCollectorへ通知する際のAgent名称
+datacollector.agentname   : "/Performance"
+

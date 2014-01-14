@@ -1,3 +1,15 @@
+/**
+* Copyright (c) Acroquest Technology Co, Ltd. All Rights Reserved.
+* Please read the associated COPYRIGHTS file for more details.
+*
+* THE SOFTWARE IS PROVIDED BY Acroquest Technolog Co., Ltd.,
+* WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+* BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDER BE LIABLE FOR ANY
+* CLAIM, DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+* OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+*/
 package acromusashi.stream.example.topology;
 
 import acromusashi.stream.bolt.jdbc.CamelJdbcStoreBolt;
@@ -64,8 +76,7 @@ public class LocalJdbcStoreTopology extends BaseTopology
         boolean isLocal = Boolean.valueOf(args[1]);
 
         // Topologyを起動する
-        BaseTopology topology = new LocalJdbcStoreTopology(
-                "LocalJdbcStoreTopology", conf);
+        BaseTopology topology = new LocalJdbcStoreTopology("LocalJdbcStoreTopology", conf);
         topology.buildTopology();
         topology.submitTopology(isLocal);
     }
@@ -74,12 +85,10 @@ public class LocalJdbcStoreTopology extends BaseTopology
     public void buildTopology() throws Exception
     {
         // Get setting from StormConfig Object
-        int snmpGenSpoutPara = StormConfigUtil.getIntValue(getConfig(),
-                "SnmpGenSpout.Parallelism", 1);
-        int jdbcBoltPara = StormConfigUtil.getIntValue(getConfig(),
-                "JdbcStoreBolt.Parallelism", 1);
-        String contextUri = StormConfigUtil.getStringValue(getConfig(),
-                "CamelContext.Path",
+        int snmpGenSpoutPara = StormConfigUtil.getIntValue(getConfig(), "SnmpGenSpout.Parallelism",
+                1);
+        int jdbcBoltPara = StormConfigUtil.getIntValue(getConfig(), "JdbcStoreBolt.Parallelism", 1);
+        String contextUri = StormConfigUtil.getStringValue(getConfig(), "CamelContext.Path",
                 "file:/opt/storm/conf/camel-context-example-jdbc.xml");
 
         // Topology Setting

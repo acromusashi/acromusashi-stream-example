@@ -1,3 +1,15 @@
+/**
+* Copyright (c) Acroquest Technology Co, Ltd. All Rights Reserved.
+* Please read the associated COPYRIGHTS file for more details.
+*
+* THE SOFTWARE IS PROVIDED BY Acroquest Technolog Co., Ltd.,
+* WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+* BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDER BE LIABLE FOR ANY
+* CLAIM, DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+* OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+*/
 package acromusashi.stream.example.topology;
 
 import acromusashi.stream.config.StormConfigGenerator;
@@ -61,8 +73,7 @@ public class LocalConsolePrintTopology extends BaseTopology
         boolean isLocal = Boolean.valueOf(args[1]);
 
         // Topologyを起動する
-        BaseTopology topology = new LocalConsolePrintTopology(
-                "LocalConsolePrintTopology", conf);
+        BaseTopology topology = new LocalConsolePrintTopology("LocalConsolePrintTopology", conf);
         topology.buildTopology();
         topology.submitTopology(isLocal);
     }
@@ -79,8 +90,7 @@ public class LocalConsolePrintTopology extends BaseTopology
         // Topology Setting
         // Add Spout(PeriodicalMessageGenSpout)
         PeriodicalMessageGenSpout messageGenSpout = new PeriodicalMessageGenSpout();
-        getBuilder().setSpout("MessageGenSpout", messageGenSpout,
-                messageGenPara);
+        getBuilder().setSpout("MessageGenSpout", messageGenSpout, messageGenPara);
 
         // Add Bolt(PeriodicalMessageGenSpout -> ConsolePrintBolt)
         ConsolePrintBolt printBolt = new ConsolePrintBolt();

@@ -21,6 +21,6 @@ ConvertBolt.Parallelism    : 4
 HdfsStoreBolt.Parallelism  : 4
 
 ## Set Hadoop NameNode Host
-hdfsstorebolt.outputuri      : 'hdfs://__NAMENODE_HOST__:55000/camel/HDFSPerformance/'
+hdfsstorebolt.outputuri      : 'hdfs://__NAMENODE_HOST__:55000/camel/HDFSPer/'
 hdfsstorebolt.filenameheader : HDFSStoreBolt
 hdfsstorebolt.interval       : 1

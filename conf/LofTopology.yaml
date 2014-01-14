@@ -1,0 +1,74 @@
+## LofTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : rtml01
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 3
+## parallelismHint ThreadNum
+topology.parallelismHint   :   2
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+## Spout Settings
+transactional.zookeeper.servers :
+  - "rtml01"
+  - "rtml02"
+  - "rtml03"
+
+transactional.zookeeper.port : 2181
+
+## Spout
+## LOF用のテストデータの配置パス＆ベースファイル名
+## parallelismHint設定に応じて「ベースファイル名_【TaskIndex】」のファイルが読みこまれる。
+## 例）「Lof.txt_0」「Lof.txt_1」
+lof.datafilepath     : "/opt/acromusashi-stream-ml/"
+lof.datafilebasename : "Lof.txt"
+## LOF用のテストデータを最後まで読んだ場合に最初から再読み込みを行うか？
+lof.datafilereload   : true
+## 1Transactionでファイルから読み込むデータ数
+lof.maxbatchsize     : 50
+
+## StateFactory
+## 学習モデルを保存するサーバアドレス。「host1:port1;host2:port2;host3:port3...」という形式で定義
+lof.stateservers        : "rtml01:11222;rtml02:11222;rtml03:11222"
+## 学習モデルキャッシュ名称
+lof.cachename           : "default"
+## 学習モデルのマージを行う間隔
+lof.merge.interval.secs : 30
+## キャッシュ上に学習モデルを保存する期間
+lof.lifespan.secs       : 60
+
+## Creator
+## 投入データを分割する文字列
+lof.delimeter        : " "
+
+## Updater
+## キャッシュに保存する際のベース名称
+lof.state.base.name     : "Lof"
+## 中間データを保持して計算を高速化するか？
+## （キャッシュへの保持データ量は増大するため注意すること）
+lof.has.intermediate    : true
+## 学習データを受信時、常に学習モデルを更新するか？
+lof.always.update.model : false
+## 学習データ受信時の学習モデル更新間隔
+## 有効条件：「lof.always.update.model」=false
+lof.update.interval     : 100
+## K値
+lof.kn                  : 10
+## LOF値の算出を行う最小データ数
+lof.min.data.count      : 10
+## 学習モデルが保持する最大データ数
+lof.max.data.count      : 100
+## 通知ログを出力するLOF閾値
+lof.notify.threshold    : 5.0
+
+## Query
+## DRPCサーバアドレス
+drpc.servers            :
+  - rtml01
+## DRPC機能名称
+lof.drpc.function : "lof"
+  
