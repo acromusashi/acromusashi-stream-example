@@ -43,8 +43,6 @@
                 <exclude>commons-lang:commons-lang</exclude>
                 <exclude>commons-logging:commons-logging</exclude>
                 <exclude>com.google.guava:guava</exclude>
-                <exclude>org.mortbay.jetty:jetty</exclude>
-                <exclude>org.mortbay.jetty:jetty-util</exclude>
                 <exclude>org.slf4j:slf4j-api</exclude>
                 <exclude>org.slf4j:log4j-over-slf4j</exclude>
                 <exclude>org.apache.httpcomponents:httpclient</exclude>
