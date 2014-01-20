@@ -2,25 +2,28 @@
 acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して作成した  
 サンプルプログラム群の環境構築方法／利用方法についてまとめたものです。  
 
-## システム構成イメージ
-![Abstract Image](http://acromusashi.github.io/acromusashi-stream-example/images/AcroMUSASHIStreamExampleAbstract.jpg)
-
 ## スタートガイド
-### ビルド環境
-* JDK 7以降  
-* Maven 2.2.1以降
+### デプロイ
+acromusashi-stream-example の各種機能を動作させるためには、以下の手順が必要です。
+- Step1: Storm／必要となるミドルウェアのインストール
+- Step2: acromusashi-stream-example のデプロイ
+- Step3: Topologyの起動
 
-### ビルド手順
-* ソースをGitHubから取得後、取得先ディレクトリに移動し下記のコマンドを実行してください。  
-** コマンド実行の結果、 acromusashi-stream-example.zip が生成されます。  
-
+#### Step1: Storm／必要となるミドルウェアのインストール
+Stormのインストールについては[Stormのインストール](https://github.com/acromusashi/acromusashi-stream#step1-storm%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)を確認してください。  
+ミドルウェアのインストールについてはExamplesの各ページを確認してください。
+#### Step2: acromusashi-stream-example のデプロイ
+GitHubからソースコードをダウンロードし、下記のコマンドを実行してビルドを行います。  
 ```
-# mvn clean package  
+# mvn clean package
 ```
-### 利用手順
-「機能一覧」に記述されているWikiページを参照してください。
+生成されたacromusashi-stream-example.zipを用いてデプロイを行います。
+デプロイ手順は[Step2: acromusashi-stream を利用して開発したTopologyのデプロイ](https://github.com/acromusashi/acromusashi-stream#step2-acromusashi-stream-%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E9%96%8B%E7%99%BA%E3%81%97%E3%81%9Ftopology%E3%81%AE%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4)を確認してください。  
+acromusashi-stream-exampleの場合、「開発したTopologyのjar」は「acromusashi-stream-example-x.x.x.jar」となります。  
+#### Step3: Topologyの起動
+起動手順はExamplesの各ページを確認してください。
 
-## 機能一覧
+## Examples
 下記のWikiページを確認してください。  
 - <a href="https://github.com/acromusashi/acromusashi-stream-example/wiki/Abstract">Example構成概要</a>
 - <a href="https://github.com/acromusashi/acromusashi-stream-example/wiki/Run-in-Single-Process">シングルプロセスでの利用方法</a>
