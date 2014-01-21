@@ -1,4 +1,4 @@
-## EndoSnipeTridentTopology Config
+## ChangeFindTopology Config
 ## NimbusHost
 ## Set StormCluster's Nimbus Host
 nimbus.host        : nimbus
@@ -18,7 +18,7 @@ kafka.topic                : ApacheLog
 ## Kafkaの接続先ZooKeeperのサーバアドレス。「host1:port1,host2:port2,host3:port3...」という形式で定義(ホスト毎の区切り文字はカンマ)
 kafka.zookeeper.server.str : "localhost:2181"
 ## KafkaのConsumer Group Id
-kafka.consumer.id          : "EndoSnipeTridentTopology"
+kafka.consumer.id          : "ChangeFindTopology"
 ## KafkaのBroker情報を保持するZooKeeper上のパス
 kafka.zookeeper.root       : "/brokers"
 
@@ -36,13 +36,4 @@ changefinder.smoothingwindow  : 5
 ## 変化点として検出するスコア閾値
 changefinder.threshold : 15.0
 
-## EndoSnipeNotifyFunction
-## DataCollector接続先ホスト
-datacollector.host        : "localhost"
-## DataCollector接続先ポート
-datacollector.port        : 18000
-## DataCollectorへ通知する際のメッセージ名称
-datacollector.messagename : "/Trident/Performance/"
-## DataCollectorへ通知する際のAgent名称
-datacollector.agentname   : "/Performance"
 
