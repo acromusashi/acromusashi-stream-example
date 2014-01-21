@@ -40,7 +40,7 @@ import backtype.storm.tuple.Fields;
  * <ol>
  * <li>TridentKafkaSpoutにてKafkaからApacheログ(JSON形式)を読み込む。</li>
  * <li>ApacheLogSplitFunctionにてJSONをエンティティに変換する。</li>
- * <li>ChangeFindFunctionにてレスポンスタイムに対するChangeFinderアルゴリズムによる変化点検出を行い、各。</li>
+ * <li>ChangeFindFunctionにてレスポンスタイムに対するChangeFinderアルゴリズムによる変化点検出を行う。</li>
  * <li>ApacheLogAggregatorにてホスト毎に統計を行う。</li>
  * <li>ChangeFindFunctionにて統計結果をログ出力する。</li>
  * </ol>
