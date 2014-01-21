@@ -10,6 +10,12 @@ topology.workers   : 2
 topology.debug     : false
 
 ## TopologyDefine
-MessageGenSpout.Parallelism  : 2
+## Set Kestrel Host:Port List
+Kestrel.Hosts              : 
+  - __KESTREL_HOST1__:__KESTREL_PORT1__
+  - __KESTREL_HOST2__:__KESTREL_PORT2__
+
+Kestrel.QueueName          : MessageQueue
+KestrelSpout.Parallelism   : 1
 ConsolePrintBolt.Parallelism : 2
 
