@@ -12,13 +12,17 @@
 */
 package acromusashi.stream.example.topology;
 
+import java.util.List;
+
+import acromusashi.stream.component.kestrel.spout.KestrelSpout;
 import acromusashi.stream.config.StormConfigGenerator;
 import acromusashi.stream.config.StormConfigUtil;
 import acromusashi.stream.entity.Message;
 import acromusashi.stream.example.bolt.ConsolePrintBolt;
-import acromusashi.stream.example.spout.PeriodicalMessageGenSpout;
 import acromusashi.stream.topology.BaseTopology;
 import backtype.storm.Config;
+import backtype.storm.scheme.StringScheme;
+import backtype.storm.spout.SchemeAsMultiScheme;
 
 /**
  * StormTopologyから外部には接続せず、共通メッセージをコンソール出力するTopologyを起動する。<br/>
@@ -82,20 +86,24 @@ public class LocalConsolePrintTopology extends BaseTopology
     public void buildTopology() throws Exception
     {
         // Get setting from StormConfig Object
-        int messageGenPara = StormConfigUtil.getIntValue(getConfig(),
-                "MessageGenSpout.Parallelism", 2);
+        List<String> kestrelHosts = StormConfigUtil.getStringListValue(getConfig(), "Kestrel.Hosts");
+        String kestrelQueueName = StormConfigUtil.getStringValue(getConfig(), "Kestrel.QueueName",
+                "MessageQueue");
+        int kestrelSpoutPara = StormConfigUtil.getIntValue(getConfig(), "KestrelSpout.Parallelism",
+                1);
         int consoleBoltPara = StormConfigUtil.getIntValue(getConfig(),
                 "ConsolePrintBolt.Parallelism", 2);
 
         // Topology Setting
-        // Add Spout(PeriodicalMessageGenSpout)
-        PeriodicalMessageGenSpout messageGenSpout = new PeriodicalMessageGenSpout();
-        getBuilder().setSpout("MessageGenSpout", messageGenSpout, messageGenPara);
+        // Add Spout(KestrelSpout)
+        KestrelSpout kestrelSpout = new KestrelSpout(kestrelHosts, kestrelQueueName,
+                new SchemeAsMultiScheme(new StringScheme()));
+        getBuilder().setSpout("KestrelSpout", kestrelSpout, kestrelSpoutPara);
 
-        // Add Bolt(PeriodicalMessageGenSpout -> ConsolePrintBolt)
+        // Add Bolt(KestrelSpout -> ConsolePrintBolt)
         ConsolePrintBolt printBolt = new ConsolePrintBolt();
         getBuilder().setBolt("ConsolePrintBolt", printBolt, consoleBoltPara).localOrShuffleGrouping(
-                "MessageGenSpout");
+                "KestrelSpout");
 
         // Regist Serialize Setting.
         getConfig().registerSerialization(Message.class);
