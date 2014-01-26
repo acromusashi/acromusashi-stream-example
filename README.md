@@ -23,7 +23,7 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 - [教師なし学習（KMeans++クラスタリング）](https://github.com/acromusashi/acromusashi-stream-example/wiki/KMeansFunction)
 
 #### 異常値
-- [外れ値検出（LOF:Local Outlier Factor）]
+- [外れ値検出（LOF:Local Outlier Factor）](https://github.com/acromusashi/acromusashi-stream-example/wiki/LOFFunction)
 - [変化点検出（ChangeFinder）]
 
 ## ダウンロード
