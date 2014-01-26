@@ -32,6 +32,7 @@ acromusashi-stream-exampleの場合、「開発したTopologyのjar」は「acro
 - <a href="https://github.com/acromusashi/acromusashi-stream-example/wiki/SnmpToolkit-Usage">SnmpToolkitの利用方法</a>
 
 ## ダウンロード
+https://github.com/acromusashi/acromusashi-stream-example/wiki/Download
 
 ## License
 This software is released under the MIT License, see LICENSE.txt.
