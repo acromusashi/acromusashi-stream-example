@@ -7,16 +7,6 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 ### データ受信／収集
 - [SNMPTrap受信](https://github.com/acromusashi/acromusashi-stream-example/wiki/SNMPTrapReceive)
 
-### データ取得
-- [Kestrel]
-- [RabbitMQ]
-
-### データストア連携
-- [Hadoop]
-- [HBase]
-- [Cassandra]
-- [Elasticsearch]
-
 ### 機械学習機能
 
 #### クラスタリング
