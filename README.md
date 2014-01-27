@@ -24,7 +24,7 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 
 #### 異常値
 - [外れ値検出（LOF:Local Outlier Factor）](https://github.com/acromusashi/acromusashi-stream-example/wiki/LOFFunction)
-- [変化点検出（ChangeFinder）]
+- [変化点検出（ChangeFinder）](https://github.com/acromusashi/acromusashi-stream-example/wiki/ChangeFinderFunction)
 
 ## ダウンロード
 https://github.com/acromusashi/acromusashi-stream-example/wiki/Download
