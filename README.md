@@ -5,7 +5,20 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 ## Examples
 各サンプルの説明、利用手順は下記のWikiページを確認してください。  
 ### データ受信／収集
+- HTTP（JSON）受信
+- TCP受信
+- Syslog受信
 - [SNMPTrap受信](https://github.com/acromusashi/acromusashi-stream-example/wiki/SNMPTrapReceive)
+
+### データ取得
+- Kestrel
+- RabbitMQ
+
+### データストア連携
+- Hadoop
+- HBase
+- Cassandra
+- Elasticsearch
 
 ### 機械学習機能
 
