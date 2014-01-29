@@ -1,14 +1,14 @@
 ## 概要
-acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して作成した  
-サンプルプログラム群の環境構築方法／利用方法についてまとめたものです。  
+acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して作成したサンプルプログラム群の環境構築方法／利用方法についてまとめたものです。  
 
 ## Examples
 各サンプルの説明、利用手順は下記のWikiページを確認してください。  
+
 ### データ受信／収集
 - HTTP（JSON）受信
-- TCP受信
-- Syslog受信
 - [SNMPTrap受信](https://github.com/acromusashi/acromusashi-stream-example/wiki/SNMPTrapReceive)
+- Syslog受信
+- ログ収集
 
 ### データ取得
 - Kestrel
@@ -23,7 +23,7 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 ### 機械学習機能
 
 #### クラスタリング
-- [教師なし学習（KMeans++クラスタリング）](https://github.com/acromusashi/acromusashi-stream-example/wiki/KMeansFunction)
+- [K-means](https://github.com/acromusashi/acromusashi-stream-example/wiki/KMeansFunction)
 
 #### 異常値検知 
 - [外れ値検出（LOF:Local Outlier Factor）](https://github.com/acromusashi/acromusashi-stream-example/wiki/LOFFunction)
@@ -32,5 +32,5 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 ## ダウンロード
 https://github.com/acromusashi/acromusashi-stream-example/wiki/Download
 
-## License
-This software is released under the MIT License, see LICENSE.txt.
+## ライセンス
+This software is released under the [MIT License](http://choosealicense.com/licenses/mit/), see LICENSE.txt.
