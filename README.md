@@ -24,7 +24,7 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 
 #### クラスタリング
 - [K-means](https://github.com/acromusashi/acromusashi-stream-example/wiki/KMeansFunction)  
-デモイメージ  
+実行デモイメージ  
 ![Demo Image](http://acromusashi.github.io/acromusashi-stream-ml/images/kmeans-demo.jpg)  
 
 #### 異常値検知 
