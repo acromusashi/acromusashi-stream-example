@@ -23,9 +23,10 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 ### 機械学習機能
 
 #### クラスタリング
-- [K-means](https://github.com/acromusashi/acromusashi-stream-example/wiki/KMeansFunction)
-デモイメージ
-![Demo Image](http://acromusashi.github.io/acromusashi-stream-ml/images/kmeans-demo.jpg)
+- [K-means](https://github.com/acromusashi/acromusashi-stream-example/wiki/KMeansFunction)  
+デモイメージ  
+![Demo Image](http://acromusashi.github.io/acromusashi-stream-ml/images/kmeans-demo.jpg)  
+
 #### 異常値検知 
 - [外れ値検出（LOF:Local Outlier Factor）](https://github.com/acromusashi/acromusashi-stream-example/wiki/LOFFunction)
 - [変化点検出（ChangeFinder）](https://github.com/acromusashi/acromusashi-stream-example/wiki/ChangeFinderFunction)
