@@ -24,7 +24,7 @@ kafka.zookeeper.root       : "/brokers"
 
 ## ApacheLogSplitFunction
 ## ApacheLogJSON中のDateFormat
-apache.date.format : "yyyy-MM-dd'T'HH:mm:SSSZ"
+apache.date.format : "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
 ## ChangeFindFunction
 ## ChangeFindアルゴリズム:自己回帰モデルの次数「k」
