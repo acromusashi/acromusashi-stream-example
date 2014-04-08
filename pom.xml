@@ -74,7 +74,7 @@
     <jdk.version>1.7</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <site.encoding>UTF-8</site.encoding>
-    <storm.version>0.9.0-rc2</storm.version>
+    <storm.version>0.9.1-incubating</storm.version>
     <jacoco.include.package>acromusashi.stream.example.*</jacoco.include.package>
   </properties>
 
@@ -133,18 +133,18 @@
     <dependency>
       <groupId>jp.co.acroquest.acromusashi</groupId>
       <artifactId>acromusashi-stream</artifactId>
-      <version>0.5.0</version>
+      <version>0.5.1</version>
     </dependency>
     <dependency>
       <groupId>jp.co.acroquest.acromusashi</groupId>
       <artifactId>acromusashi-stream-ml</artifactId>
-      <version>0.2.0</version>
+      <version>0.2.1</version>
     </dependency>
 
     <!-- Storm -->
     <dependency>
-      <groupId>storm</groupId>
-      <artifactId>storm</artifactId>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-core</artifactId>
       <version>${storm.version}</version>
       <!-- Storm本体は実行環境で提供 -->
       <scope>provided</scope>
@@ -183,7 +183,7 @@
     <dependency>
       <groupId>org.clojars.brenden</groupId>
       <artifactId>storm-kafka-0.8-plus</artifactId>
-      <version>0.1.7-SNAPSHOT</version>
+      <version>0.2.10-SNAPSHOT</version>
       <exclusions>
         <exclusion>
           <groupId>org.scala-lang</groupId>
@@ -194,7 +194,7 @@
     <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka_2.9.2</artifactId>
-      <version>0.8.0-beta1</version>
+      <version>0.8.1</version>
       <exclusions>
         <exclusion>
           <groupId>log4j</groupId>
@@ -360,7 +360,7 @@
       <plugin>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-maven-plugin</artifactId>
-        <version>2.10.1</version>
+        <version>2.13.0</version>
       </plugin>
     </plugins>
   </build>
