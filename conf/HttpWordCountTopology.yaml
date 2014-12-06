@@ -1,0 +1,21 @@
+## LofTopology Sample Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : nimbus-host
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 3
+## Storm Debug Flag
+topology.debug     : false
+
+## TopologyDefine
+## Spout Settings
+http.get.targetUrl : 'http://localhost:8080/message'
+
+## Parallelism Setting
+HttpGetSpout.Parallelism : 1
+JsonExtractBolt.Parallelism : 1
+SplitSentenceBolt.Parallelism : 1
+WordCountBolt.Parallelism : 1
+

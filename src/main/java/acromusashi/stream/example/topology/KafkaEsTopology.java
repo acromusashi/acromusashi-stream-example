@@ -27,14 +27,14 @@ import backtype.storm.spout.SchemeAsMultiScheme;
 
 /**
  * KafkaからJSON文字列を取得し、ElasticSearchに投入するTopology
- * 
+ *
  * @author kimura
  */
 public class KafkaEsTopology extends BaseTopology
 {
     /**
      * コンストラクタ
-     * 
+     *
      * @param topologyName Topology名称
      * @param config Storm設定オブジェクト
      */
