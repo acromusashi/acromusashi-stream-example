@@ -4,7 +4,7 @@
   <name>acromusashi-stream-example</name>
   <groupId>jp.co.acroquest.acromusashi</groupId>
   <artifactId>acromusashi-stream-example</artifactId>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <packaging>jar</packaging>
   <description>Realtime Big Data Platform</description>
   <url>https://github.com/acromusashi</url>
@@ -27,7 +27,7 @@
       <url>https://github.com/acromusashi</url>
       <roles>
         <role>developer</role>
-      </roles>    
+      </roles>
       <timezone>-9</timezone>
     </developer>
   </developers>
@@ -74,7 +74,7 @@
     <jdk.version>1.7</jdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <site.encoding>UTF-8</site.encoding>
-    <storm.version>0.9.1-incubating</storm.version>
+    <storm.version>0.9.3</storm.version>
     <jacoco.include.package>acromusashi.stream.example.*</jacoco.include.package>
   </properties>
 
@@ -108,7 +108,7 @@
   </repositories>
 
   <!-- 依存関係 -->
-  <dependencies>  
+  <dependencies>
     <!-- Test -->
     <dependency>
       <groupId>junit</groupId>
@@ -128,17 +128,17 @@
       <version>1.9.5</version>
       <scope>test</scope>
     </dependency>
-    
+
     <!-- AcroMUSASHIライブラリ -->
     <dependency>
       <groupId>jp.co.acroquest.acromusashi</groupId>
       <artifactId>acromusashi-stream</artifactId>
-      <version>0.5.1</version>
+      <version>0.5.4</version>
     </dependency>
     <dependency>
       <groupId>jp.co.acroquest.acromusashi</groupId>
       <artifactId>acromusashi-stream-ml</artifactId>
-      <version>0.2.1</version>
+      <version>0.2.3</version>
     </dependency>
 
     <!-- Storm -->
@@ -178,7 +178,7 @@
       <artifactId>jedis</artifactId>
       <version>2.2.1</version>
     </dependency>
-    
+
     <!-- Storm-Kafka -->
     <dependency>
       <groupId>org.clojars.brenden</groupId>
@@ -207,7 +207,7 @@
       <artifactId>scala-compiler</artifactId>
       <version>2.9.2</version>
     </dependency>
-    
+
     <dependency>
       <groupId>endosnipe</groupId>
       <artifactId>endosnipe-common</artifactId>
@@ -355,7 +355,7 @@
           </execution>
         </executions>
       </plugin>
-            
+
             <!-- allows the route to be ran via 'mvn camel:run' -->
       <plugin>
         <groupId>org.apache.camel</groupId>
