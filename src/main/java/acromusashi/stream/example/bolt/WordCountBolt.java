@@ -80,7 +80,7 @@ public class WordCountBolt extends BaseConfigurationBolt
         if (this.receiveCount % this.interval == 0)
         {
             String logFormat = "WordCount Result. : CountResult={0}";
-            logger.warn(MessageFormat.format(logFormat, this.counts.toString()));
+            logger.info(MessageFormat.format(logFormat, this.counts.toString()));
         }
     }
 
