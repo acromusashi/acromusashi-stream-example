@@ -36,22 +36,22 @@ import backtype.storm.tuple.Tuple;
 public class WordCountBolt extends BaseConfigurationBolt
 {
     /** serialVersionUID */
-    private static final long    serialVersionUID = 9080948772140456741L;
+    private static final long      serialVersionUID = 9080948772140456741L;
 
     /** logger */
-    private static final Logger  logger           = LoggerFactory.getLogger(WordCountBolt.class);
+    private static final Logger    logger           = LoggerFactory.getLogger(WordCountBolt.class);
 
     /** 単語出現回数カウンタ */
-    private Map<String, Integer> counts           = new TreeMap<String, Integer>();
+    protected Map<String, Integer> counts           = new TreeMap<String, Integer>();
 
     /** 結果出力インターバルデフォルト値 */
-    private static final long    DEFAULT_INTERVAL = 100;
+    private static final long      DEFAULT_INTERVAL = 100;
 
     /** 結果出力インターバル */
-    private long                 interval         = DEFAULT_INTERVAL;
+    protected long                 interval         = DEFAULT_INTERVAL;
 
     /** 受信メッセージ数 */
-    private long                 receiveCount;
+    protected long                 receiveCount;
 
     /**
      * パラメータを指定せずインスタンスを生成する。
@@ -106,5 +106,4 @@ public class WordCountBolt extends BaseConfigurationBolt
     {
         this.interval = interval;
     }
-
 }

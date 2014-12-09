@@ -102,7 +102,7 @@ public class JsonExtractBolt extends BaseConfigurationBolt
             return;
         }
 
-        getCollector().emit(input, new Values(valueJson.toString()));
+        getCollector().emit(new Values(valueJson.asText()));
     }
 
     /**

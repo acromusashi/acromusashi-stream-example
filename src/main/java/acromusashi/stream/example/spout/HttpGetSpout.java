@@ -54,13 +54,13 @@ public class HttpGetSpout extends BaseConfigurationSpout
     private String              targetUrl;
 
     /** HTTPGET */
-    private HttpGet             httpget;
+    protected HttpGet           httpget;
 
     /** HttpClient */
-    private HttpClient          client;
+    protected HttpClient        client;
 
     /** HTTPGetリクエストを送信するインターバル（ミリ秒） */
-    private long                interval         = DEFAULT_INTERVAL;
+    protected long              interval         = DEFAULT_INTERVAL;
 
     /**
      * アクセス先URLを指定してインスタンスを生成する。
