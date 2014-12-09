@@ -54,6 +54,12 @@ public class WordCountBolt extends BaseConfigurationBolt
     private long                 receiveCount;
 
     /**
+     * パラメータを指定せずインスタンスを生成する。
+     */
+    public WordCountBolt()
+    {}
+
+    /**
      * {@inheritDoc}
      */
     @Override
