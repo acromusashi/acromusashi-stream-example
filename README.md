@@ -3,6 +3,8 @@ acromusashi-stream-exampleプロジェクトはacromusashi-streamを利用して
 
 ## Examples
 各サンプルの説明、利用手順は下記のWikiページを確認してください。  
+### チュートリアル
+- [ワードカウント](https://github.com/acromusashi/acromusashi-stream-example/wiki/Run-WordCount-sample)
 
 ### データ受信／収集
 - HTTP（JSON）受信
