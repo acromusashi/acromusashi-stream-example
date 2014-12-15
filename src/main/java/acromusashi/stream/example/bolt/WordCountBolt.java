@@ -67,7 +67,6 @@ public class WordCountBolt extends BaseConfigurationBolt
     {
         // 単語出現回数カウンタからカウンタを取得
         String word = input.getStringByField("word");
-        word = word.toLowerCase();
         Integer count = this.counts.get(word);
 
         // カウンタ値が存在しない場合は値を0で初期化

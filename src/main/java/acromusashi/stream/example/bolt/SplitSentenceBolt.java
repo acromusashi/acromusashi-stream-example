@@ -54,7 +54,7 @@ public class SplitSentenceBolt extends BaseConfigurationBolt
         // 単語単位にTupleに分割し、次のBoltに送信する
         for (String targetWord : words)
         {
-            getCollector().emit(new Values(targetWord));
+            getCollector().emit(new Values(targetWord.toLowerCase()));
         }
     }
 
