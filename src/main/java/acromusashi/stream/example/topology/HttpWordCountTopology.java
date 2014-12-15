@@ -49,7 +49,7 @@ import backtype.storm.tuple.Fields;
  * MessageTopologyにKestrelのアドレスを指定し、<br>
  * storm-starterプロジェクト　クラス「storm.starter.WordCountTopology」を下記の条件で実行する。
  * <ol>
- * <li>Program arguments : conf/WordCountTopology.yaml true</li>
+ * <li>Program arguments : conf/HttpWordCountTopology.yaml true</li>
  * </ol>
  *
  * @author acromusashi
