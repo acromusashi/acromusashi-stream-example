@@ -12,8 +12,11 @@
 */
 package acromusashi.stream.example.bolt;
 
-import acromusashi.stream.bolt.MessageBolt;
-import acromusashi.stream.entity.Message;
+import java.util.Map;
+
+import acromusashi.stream.bolt.AmBaseBolt;
+import acromusashi.stream.entity.StreamMessage;
+import backtype.storm.task.TopologyContext;
 
 /**
  * 受信した共通メッセージの文字列表現をコンソールに出力するBolt<br/>
@@ -21,7 +24,7 @@ import acromusashi.stream.entity.Message;
  * 
  * @author kimura
  */
-public class ConsolePrintBolt extends MessageBolt
+public class ConsolePrintBolt extends AmBaseBolt
 {
     /** serialVersionUID */
     private static final long serialVersionUID = 5100460578090478268L;
@@ -35,8 +38,19 @@ public class ConsolePrintBolt extends MessageBolt
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("rawtypes")
     @Override
-    public void onMessage(Message message) throws Exception
+    public void onPrepare(Map config, TopologyContext context)
+    {
+        // TODO Auto-generated method stub
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onExecute(StreamMessage message)
     {
         System.out.println(message.toString());
     }

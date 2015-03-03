@@ -12,15 +12,18 @@
 */
 package acromusashi.stream.example.bolt;
 
-import acromusashi.stream.bolt.MessageBolt;
-import acromusashi.stream.entity.Message;
+import java.util.Map;
+
+import acromusashi.stream.bolt.AmBaseBolt;
+import acromusashi.stream.entity.StreamMessage;
+import backtype.storm.task.TopologyContext;
 
 /**
  * 受信した共通メッセージをそのまま捨てるBolt<br/>
  * 
  * @author kimura
  */
-public class BlackHoleBolt extends MessageBolt
+public class BlackHoleBolt extends AmBaseBolt
 {
     /** serialVersionUID */
     private static final long serialVersionUID = 4824580284119159163L;
@@ -34,8 +37,18 @@ public class BlackHoleBolt extends MessageBolt
     /**
      * {@inheritDoc}
      */
+    @SuppressWarnings("rawtypes")
     @Override
-    public void onMessage(Message message) throws Exception
+    public void onPrepare(Map config, TopologyContext context)
+    {
+        // Do nothing.
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onExecute(StreamMessage message)
     {
         // Do nothing.
     }

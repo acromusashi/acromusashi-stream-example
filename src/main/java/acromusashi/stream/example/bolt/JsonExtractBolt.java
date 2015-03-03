@@ -19,14 +19,9 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import acromusashi.stream.bolt.BaseConfigurationBolt;
-import acromusashi.stream.entity.Message;
-import backtype.storm.task.OutputCollector;
+import acromusashi.stream.bolt.AmBaseBolt;
+import acromusashi.stream.entity.StreamMessage;
 import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Tuple;
-import backtype.storm.tuple.Values;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,7 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  * @author kimura
  */
-public class JsonExtractBolt extends BaseConfigurationBolt
+public class JsonExtractBolt extends AmBaseBolt
 {
     /** serialVersionUID */
     private static final long        serialVersionUID = 4002032169715662295L;
@@ -63,11 +58,9 @@ public class JsonExtractBolt extends BaseConfigurationBolt
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings("rawtypes")
     @Override
-    public void prepare(Map stormConf, TopologyContext context, OutputCollector collector)
+    public void onPrepare(@SuppressWarnings("rawtypes") Map arg0, TopologyContext arg1)
     {
-        super.prepare(stormConf, context, collector);
         this.mapper = new ObjectMapper();
     }
 
@@ -75,9 +68,8 @@ public class JsonExtractBolt extends BaseConfigurationBolt
      * {@inheritDoc}
      */
     @Override
-    public void execute(Tuple input)
+    public void onExecute(StreamMessage message)
     {
-        Message message = (Message) input.getValueByField("message");
         String jsonStr = message.getBody().toString();
 
         JsonNode rootJson;
@@ -102,15 +94,8 @@ public class JsonExtractBolt extends BaseConfigurationBolt
             return;
         }
 
-        getCollector().emit(new Values(valueJson.asText()));
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void declareOutputFields(OutputFieldsDeclarer declarer)
-    {
-        declarer.declare(new Fields("message"));
+        StreamMessage sendMessage = new StreamMessage();
+        sendMessage.setBody(valueJson.asText());
+        emitWithOnlyAnchor(sendMessage);
     }
 }
