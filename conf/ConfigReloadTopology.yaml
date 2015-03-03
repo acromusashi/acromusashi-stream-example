@@ -1,0 +1,26 @@
+## ConfigReloadTopology Config
+## NimbusHost
+## Set StormCluster's Nimbus Host
+nimbus.host        : 'nimbushost'
+## NimbusPort
+nimbus.thrift.port : 6627
+## WorkerProcess Number
+topology.workers   : 3
+## Storm Debug Flag
+topology.debug     : false
+topology.message.timeout.secs : 30
+
+## TopologyDefine
+## topology.init.config.path : 
+
+## ConfigReloadSpout Settings
+ConfigReloadSpout.reload : true
+ConfigReloadSpout.interval : 30
+
+## ConfigReloadBolt Settings
+ConfigReloadBolt.reload : true
+ConfigReloadBolt.interval : 30
+
+## Parallelism Setting
+ConfigReloadSpout.Parallelism : 2
+ConfigReloadBolt.Parallelism : 2
